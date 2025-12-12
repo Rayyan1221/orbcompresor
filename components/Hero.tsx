@@ -6,8 +6,9 @@ export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   
-  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -100]);
+  // Swapped Y values to create Top-Left to Bottom-Right flow (Before -> After)
+  const y1 = useTransform(scrollY, [0, 500], [0, -100]); 
+  const y2 = useTransform(scrollY, [0, 500], [0, 100]);
   const rotateX = useTransform(scrollY, [0, 500], [0, 10]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.95]);
 
@@ -24,7 +25,7 @@ export const Hero = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
-            Get More Storage.<br />Zero Quality Loss.
+            Compress upto 90%.<br />Zero Quality Loss.
           </h1>
           <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
             Professional media compression that defies physics. <span className="text-white font-medium">Upto 90% size reduction</span> with identical quality. 
